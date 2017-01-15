@@ -1,0 +1,22 @@
+{
+	"server": {
+		"port": "8080"
+	},
+	"JWT_SECRET":"shhhhhhared-secret",
+	"api": {
+		"login": {
+			"module": "Login",
+			"methods": {
+				"post": {
+					"auth": false,
+					"method": "authenticate"
+				}
+			}
+		}
+	},
+	"modules": {
+		"Login": {
+
+		}
+	}
+}

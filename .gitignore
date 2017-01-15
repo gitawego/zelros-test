@@ -1,0 +1,6 @@
+node_modules
+.history
+dist
+*.log
+coverage
+.nyc_output
