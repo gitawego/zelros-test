@@ -6,10 +6,17 @@ import {
 
 import { CommonModule } from '@angular/common';
 
+import { StoreModule } from '@ngrx/store';
+
+
 import { ApiService } from './api.service';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+    // todo add store
+    //StoreModule.provideStore()
+  ],
   declarations: [],
   exports: [],
   providers: [ApiService]
