@@ -6,18 +6,23 @@ export function init(app: Application) {
 	Object.keys(config.api).forEach((apiName) => {
 		const cfg = config.api[apiName];
 		const mod = appConfig.get(cfg.module);
-		if (mod && mod[cfg.method]) {
-			const keys = Object.keys(cfg.methods);
-			keys.forEach((method) => {
-				const args: any = [`/api/${apiName}`];
-				if (cfg.auth) {
-					args.push(jwt({
-						secret: config.JWT_SECRET
-					}))
-				}
-				args.push(mod[cfg.method].bind(mod));
-				app[method](...args);
-			});
+		if (!mod) {
+			return console.warn(`module ${config.module} not found`);
 		}
+		const keys = Object.keys(cfg.methods);
+		keys.forEach((apiMethod) => {
+			const api = cfg.methods[apiMethod];
+			if (!mod[api.method]) {
+				return console.warn(`method ${api.method} not found in module ${cfg.module}`)
+			}
+			const args: any = [`/api/${apiName}`];
+			if (cfg.auth) {
+				args.push(jwt({
+					secret: config.JWT_SECRET
+				}))
+			}
+			args.push(mod[api.method].bind(mod));
+			app[apiMethod](...args);
+		});
 	});
 }

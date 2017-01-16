@@ -13,7 +13,7 @@ import { appConfig } from './appConfig';
  */
 var app = express();
 const config = appConfig.get('config');
-export function init(port: number, mode: string) {
+export function init(mode: string) {
 
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(bodyParser.json());
@@ -21,7 +21,7 @@ export function init(port: number, mode: string) {
 	app.use(compression());
 	modules.init();
 	routes.init(app);
-	let staticPath = mode === 'dev' ? 'app-dist-dev' : 'app-dist';
+	let staticPath = mode === 'development' ? 'app-dist-dev' : 'app-dist';
 	staticPath = path.resolve(`${process.cwd()}/${staticPath}`);
 	app.use(express.static(staticPath));
 

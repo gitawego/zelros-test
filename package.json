@@ -8,7 +8,9 @@
     "coverage": "nyc npm test",
     "test": "npm run build:dev && node ./scripts/test.js",
     "build": "rm -rf ./dist && tsc --sourcemap false",
-    "build:dev": "rm -rf ./dist && tsc"
+    "build:dev": "rm -rf ./dist && tsc",
+    "start":"NODE_ENV=production node ./dist/index.js",
+    "dev":"NODE_ENV=development node ./dist/index.js"
   },
   "nyc": {
     "include": [

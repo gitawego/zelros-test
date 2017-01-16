@@ -8,7 +8,7 @@ export function init() {
 		if (cfg.disabled) {
 			return;
 		}
-		const Module = require(`${cwd}/modules/${moduleName}`)[moduleName];
+		const Module = require(`./modules/${moduleName}`)[moduleName];
 		appConfig.set(moduleName, new Module());
 	});
 }
