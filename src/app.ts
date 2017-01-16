@@ -14,12 +14,11 @@ import './models';
  */
 var app = express();
 const config = appConfig.get('config');
-export function init(mode: string) {
-
+export const init = function (mode: string) {
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(bodyParser.json());
 	app.use(bodyParser.text());
-	app.use(compression());
+	app.use(compression()); 
 	modules.init();
 	routes.init(app);
 	const staticPath = path.resolve(`${process.cwd()}/app-dist/`);
@@ -34,4 +33,6 @@ export function init(mode: string) {
 				.catch((err) => reject(err));
 		});
 	});
+
 };
+
