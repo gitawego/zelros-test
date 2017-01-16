@@ -2,7 +2,8 @@
 	"server": {
 		"port": "8080"
 	},
-	"JWT_SECRET":"shhhhhhared-secret",
+	"appName":"blog",
+	"JWT_SECRET": "shhhhhhared-secret",
 	"api": {
 		"login": {
 			"module": "Login",
@@ -17,6 +18,15 @@
 	"modules": {
 		"Login": {
 
+		},
+		"Database": {
+			"mongodb": {
+				"hosts": [{
+					"host": "localhost",
+					"port": 27017
+				}],
+				"database": "blog"
+			}
 		}
 	}
 }

@@ -35,8 +35,8 @@
 		"triple-equals": true,
 		"variable-name": false,
 
-		"directive-selector": [true, "attribute", ["kd"], "camelCase"],
-		"component-selector": [true, "element", ["kd"], "kebab-case"],
+		"directive-selector": [true, "attribute", ["app"], "camelCase"],
+		"component-selector": [true, "element", [], "kebab-case"],
 		"use-input-property-decorator": true,
 		"use-output-property-decorator": true,
 		"use-host-property-decorator": true,
@@ -49,6 +49,7 @@
 		"import-destructuring-spacing": true,
 		"templates-use-public": true,
 		"no-access-missing-member": true,
-		"invoke-injectable": true
+		"invoke-injectable": true,
+		"experimentalDecorators": true
 	}
 }

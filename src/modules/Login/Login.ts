@@ -4,4 +4,7 @@ export class Login extends ModuleBase {
 	constructor() {
 		super('Login');
 	}
+	authenticate(req,res){
+		
+	}
 }

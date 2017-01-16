@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "baseUrl": ".",
+    "typeRoots": [
+      "node_modules/@types/"
+    ]
+  },
+  "include": [
+		"app-src/**/*",
+		"typings/**/*"
+	],
+  "exclude": [
+    "node_modules",
+    "srv-dist",
+    "dist-tsc",
+    "deploy",
+    "dist",
+    "tmp"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  }
+}

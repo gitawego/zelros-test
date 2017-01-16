@@ -1,7 +1,8 @@
 import { EventEmitter2 } from 'eventemitter2';
 import * as debug from 'debug';
-import * as config from 'config';
+import { appConfig } from '../appConfig';
 import { Log, Logger } from './Log';
+const config = appConfig.get('config');
 const crossTopic = new EventEmitter2();
 export class ModuleBase extends EventEmitter2 {
 	topic = crossTopic;

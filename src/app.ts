@@ -7,6 +7,7 @@ import * as routes from './routes';
 import * as modules from './modules';
 import { appConfig } from './appConfig';
 
+import './models';
 /**
  * Client Dir
  * @note `dev` default.
@@ -21,15 +22,16 @@ export function init(mode: string) {
 	app.use(compression());
 	modules.init();
 	routes.init(app);
-	let staticPath = mode === 'development' ? 'app-dist-dev' : 'app-dist';
-	staticPath = path.resolve(`${process.cwd()}/${staticPath}`);
+	const staticPath = path.resolve(`${process.cwd()}/app-dist/`);
 	app.use(express.static(staticPath));
 
 	return new Promise<http.Server>((resolve, reject) => {
 		let server = app.listen(config.server.port, () => {
 			var port = server.address().port;
 			console.log('App is listening on port:' + port);
-			resolve(server);
+			appConfig.get('Database').init()
+				.then(() => resolve(server))
+				.catch((err) => reject(err));
 		});
 	});
 };
