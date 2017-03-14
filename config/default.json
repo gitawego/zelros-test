@@ -1,8 +1,8 @@
 {
 	"server": {
-		"port": "8080"
+		"port": "8111"
 	},
-	"appName":"blog",
+	"appName": "blog",
 	"JWT_SECRET": "shhhhhhared-secret",
 	"api": {
 		"login": {
@@ -13,10 +13,53 @@
 					"method": "authenticate"
 				}
 			}
+		},
+		"toDoList/add": {
+			"module": "ToDoList",
+			"methods": {
+				"post": {
+					"auth": false,
+					"method": "addToDoList"
+				}
+			}
+		},
+		"toDoList/add/item": {
+			"module": "ToDoList",
+			"methods": {
+				"post": {
+					"auth": false,
+					"method": "addItem"
+				}
+			}
+		},
+		"toDoList/remove/item": {
+			"module": "ToDoList",
+			"methods": {
+				"delete": {
+					"auth": false,
+					"method": "removeItem"
+				}
+			}
+		},
+		"toDoList/get": {
+			"module": "ToDoList",
+			"methods": {
+				"get": {
+					"auth": false,
+					"method": "getToDoList"
+				}
+			}
 		}
 	},
 	"modules": {
 		"Login": {
+			"topics": {
+				"app/logout": {
+					"method": "logout"
+				}
+			}
+		},
+		"ToDoList": {
 
 		},
 		"Database": {
